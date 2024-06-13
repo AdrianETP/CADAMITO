@@ -1,0 +1,78 @@
+<app-navbar></app-navbar>
+<div *ngIf="isLoading"> </div>
+<main *ngIf="!isLoading" class="pt-40 bg-black">
+  <h2
+    class="text-4xl font-bold text-white dark:text-white mb-10"
+    style="text-align: center"
+  >
+    Línea del Tiempo
+  </h2>
+  <div>
+    <!-- recuadro para timeline -->
+    <h2
+      class="text-2xl font-bold text-white dark:text-white mb-10"
+      style="text-align: center"
+    >
+      2023
+    </h2>
+  </div>
+  <div class="w-full flex flex-col items-center">
+    <div class="w-3/4 flex justify-start overflow-x-scroll pl-5">
+      <!-- Botones de avance en linea de tiempo -->
+      <div *ngFor="let avance of avances">
+        <button (click)="openDrawer(avance)">
+          <app-lineatiempo-avance [avanceTitle]="avance.avanceNombre" [avanceFecha]="avance.avanceFecha"></app-lineatiempo-avance>
+        </button>
+      </div>
+    </div>
+    
+    <!-- drawer  -->
+    <div *ngIf="isDrawerOpen" class="drawer drawer-end">
+        <input id="my-drawer" type="checkbox" class="drawer-toggle" [(ngModel)]="isDrawerOpen" />
+      <div class="drawer-content">
+        <label for="my-drawer">
+        </label>
+      </div>
+      <div class="drawer-side">
+        <label for="my-drawer" aria-label="close sidebar" class="drawer-overlay"></label>
+        <ul class="menu p-4 w-80 min-h-full bg-gray-800 text-base-content">
+          <app-lineatiempo-detalle [detalleTitle]="selectedAvance?.detalleTitle" [detalleDesc]="selectedAvance?.detalleDesc" [detalleImg]="selectedAvance?.detalleImg" ></app-lineatiempo-detalle>
+        </ul>
+      </div>
+    </div>
+    <h2
+      class="text-3xl font-bold dark:text-white mb-10 mt-14 text-white"
+      style="text-align: center"
+    >
+      ¿Qué es esto?
+    </h2>
+    <div class="text-center">
+      <p class="mb-6 dark:text-white px-36 text-base text-white text-center mt-4">
+          Nuestra línea de tiempo muestra hitos, avances y próximos pasos en el
+          desarrollo del proyecto. Es una herramienta para comunicar de manera
+          efectiva acerca de nuestro progreso y planificación.
+      </p>
+      <p class="mb-1 dark:text-white px-36 text-base text-white text-center">
+          Tiene como propósito el ser transparente y efectiva de forma que brinde
+          claridad y seguimiento en cada etapa del proyecto, permitiendo una toma de
+          decisiones informada y una colaboración eficiente entre el equipo y los
+          patrocinadores.
+      </p>
+    </div>
+  </div>
+  <div class="w-full flex flex-col items-center justify-center pt-12">
+    <img src="../assets/images/Carro-removebg-preview.png" />
+  </div>
+  <h2
+      class="text-3xl font-bold dark:text-white mb-4 mt-8 text-white"
+      style="text-align: center"
+    >
+      Patrocinadores
+    </h2>
+  <div class="w-full flex items-center justify-around pt-8 pb-4">
+    <img class="w-[140px] h-auto" src="../assets/images/logotec.png"/>
+    <img class="w-[140px] h-auto" src="../assets/images/logo-blanco-ansys.png"/>
+    <img class="w-[140px] h-auto" src="../assets/images/scclogo.png"/>
+    <img class="w-[140px] h-auto" src="../assets/images/perficient.png"/>
+  </div>
+</main>

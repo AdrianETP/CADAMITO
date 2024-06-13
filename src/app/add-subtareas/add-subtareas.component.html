@@ -1,0 +1,36 @@
+<dialog id="my_modal_subtareas" class="modal" [attr.data-modal-id]="ModalId">
+    <div class="modal-box bg-gray-200">
+      <form method="dialog">
+        <button
+          type="button"
+          class="btn-sm btn-circle btn-ghost absolute right-2 top-2 text-black font-bold focus:border-transparent flex items-center justify-center"
+          (click)="closeModal()"
+        >
+          ✕
+        </button>
+      </form>
+      <p class="py-4 text-black">Título de la subtarea</p>
+      <input class="input bg-white w-5/6"
+      id="titulo"
+      type="text"
+      placeholder=""
+      class="input w-5/6 bg-gray-50 text-black border-transparent h-20"
+    />
+    <div *ngIf="showWarning" class="text-red-600">{{ warning }}</div>
+  
+      <p class="py-4 text-black">Descripción:</p>
+      <div class="mb-2">
+        <input
+          id="descripción"
+          type="text"
+          placeholder=""
+          class="input w-5/6 bg-gray-50 text-black border-transparent h-20"
+        />
+      </div>
+  
+      <div class="flex justify-end">
+        <button type="button" class="btn hover:bg-green-600 hover:border-transparent mt-4 bg-green-600 text-white border-green-600 w-full" (click)="Addsubtask()">Confirmar</button>
+      </div>
+    </div>
+</dialog>
+  

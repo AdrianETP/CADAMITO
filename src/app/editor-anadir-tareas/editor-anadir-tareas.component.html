@@ -1,0 +1,60 @@
+<section class="min-w-full mx-auto bg-white h-full">
+    <app-toast-eliminar></app-toast-eliminar>
+    <div class="flex space-x-4 pt-4 mt-2 flex justify-between"> 
+        <div class="relative inline-block text-left" (click)="toggleDropdown()">
+            <div>
+                <button type="button" class="inline-flex justify-start w-full rounded border-transparent bg-white text-base text-black font-medium hover:bg-gray-50" id="dropdown-menu" aria-haspopup="true" aria-expanded="true">
+                    {{ selectedOption || 'Sistemas' }}
+                    <svg class="mr-1 ml-2 h-2.5 w-2.5 mt-2" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20" fill="currentColor" aria-hidden="true">
+                        <path fill-rule="evenodd" d="M10 12l-8-8-1.5 1.5L10 15l9.5-9.5L18 4z" clip-rule="evenodd" />
+                    </svg>
+                </button>
+            </div>
+        
+            <div *ngIf="isOpen" class="origin-bottom-right absolute w-56 shadow-lg bg-white ring-1 ring-black ring-opacity-5" role="menu" aria-orientation="vertical" aria-labelledby="dropdown-menu">
+                <div class="py-1" role="none">
+                    <a href="#" (click)="selectOption('Chasis', 1, $event)" class="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100 hover:text-gray-900" role="menuitem">Chasis</a>
+                    <a href="#" (click)="selectOption('Suspension', 2, $event)" class="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100 hover:text-gray-900" role="menuitem">Suspension</a>
+                    <a href="#" (click)="selectOption('PowerTrain', 3, $event)" class="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100 hover:text-gray-900" role="menuitem">PowerTrain</a>
+                    <a href="#" (click)="selectOption('Electronica', 4, $event)" class="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100 hover:text-gray-900" role="menuitem">Electronica</a>
+                </div>
+            </div>
+        </div>
+
+        <div class="w-8/12">
+                <div class="absolute">
+                    <div class="mb-2 flex items-end ml-12 mt-4">
+                        <app-botonplus-subtareas></app-botonplus-subtareas>
+                        <p class="ml-2 text-base mb-1 text-black ml-18">Añadir tarea</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <p class="text-sm ml-auto mb-1">Terminadas: {{ completed }}/{{ total }}</p>
+        <div class="flex w-full">
+        <div class="w-1/2 flex justify-between">
+            <div class="w-full mr-10 mb-2 h-96 rounded-xl overflow-y-scroll">
+                <ng-container *ngFor="let subtareas of subtareasFiltradas; let last = last">
+                    <app-subtarea [subtarea]="subtareas" (deleteTask)="handleDeleteTask($event)" (updateTask)="handleUpdateTask($event)"></app-subtarea>
+                </ng-container>
+            </div>
+                <app-add-subtareas (newSubTask)="handleNewSubTask($event)"></app-add-subtareas> 
+        </div>
+        
+            <div class="w-1/2 mt-auto mr-18"> 
+                <h2 class="text-xl font-normal text-black pb-4">Progreso</h2>
+                <div>
+                    <div
+                    class="w-full bg-gray-300 rounded-full h-4 mb-4 dark:bg-gray-700"
+                    style="width: 100%"
+                    >
+                    <div
+                        class="bg-green-600 h-4 rounded-full dark:bg-green-600"
+                        [style.width.%]="completed*100/total">
+                    </div>
+                </div>
+                <p class="text-center text-sm text-black">{{ (completed / total) * 100 | number: '1.0-2' }}%</p>
+            </div>
+        </div>   
+    </div>  
+</section>

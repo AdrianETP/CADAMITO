@@ -1,0 +1,47 @@
+<app-navbar></app-navbar>
+<main
+  class="min-h-full w-full bg-black text-white flex flex-col items-center justify-start"
+>
+<div class="container relative pt-48">
+  <img
+      src="../assets/images/Carro-removebg-preview.png"
+      class="w-[75vw] h-[75vh] mx-auto"
+    />
+    <a onclick="my_modal_8.showModal()" class="modal-anchor suspension" (click)="openModal(2)">
+      <div class="modal-label suspension-label text-center text-white text-3xl font-normal">Suspensión</div>
+    </a>
+
+    <a onclick="my_modal_8.showModal()" class="modal-anchor powertrain" (click)="openModal(3)"></a>
+    <div class="modal-label powertrain-label text-center text-white text-3xl font-normal">Power Train</div>
+    
+    <a onclick="my_modal_8.showModal()" class="modal-anchor chasis" (click)="openModal(1)"></a>
+    <div class="modal-label chasis-label text-center text-white text-3xl font-normal">Chasis</div>
+
+    <a onclick="my_modal_8.showModal()" class="modal-anchor electronica" (click)="openModal(4)"></a>
+    <div class="modal-label electronica-label text-center text-white text-3xl font-normal">Electrónica</div>
+    <app-patrocinador-modal [Sistema]="modalSistema" [SistemaDesc]="modalDescription" [Partes]="modalPartes" [Tareas]="modalTareas"></app-patrocinador-modal>
+  </div>
+  <div class="text-center text-white tracking-tight text-3xl font-bold dark:text-white mb-1">¿Qué es esto?</div>
+  <div class="w-full text-center mb-3 p-10 tracking-tight text-md mt-4">
+    <p class="mb-4">
+        Esta página presenta un modelo interactivo con puntos estratégicos. Cada punto revela detalles sobre las piezas esenciales que planeamos adquirir en el futuro con el apoyo adecuado.
+    </p>
+    <p class="mb-4">
+        Estos componentes representan nuestro compromiso con la excelencia y la innovación en la construcción de nuestro proyecto.
+    </p>
+    <p>
+        La colaboración es fundamental para hacer realidad nuestra visión.
+    </p>
+  </div>
+  <h2
+      class="text-3xl font-bold dark:text-white mb-8 mt-12 text-white" 
+    >
+      Patrocinadores
+    </h2>
+  <div class="w-full flex items-center justify-around pt-10 pb-2">
+    <img class="w-[140px] h-auto" src="../assets/images/logotec.png"/>
+    <img class="w-[140px] h-auto" src="../assets/images/logo-blanco-ansys.png"/>
+    <img class="w-[140px] h-auto" src="../assets/images/scclogo.png"/>
+    <img class="w-[140px] h-auto" src="../assets/images/perficient.png"/>
+  </div>
+</main>

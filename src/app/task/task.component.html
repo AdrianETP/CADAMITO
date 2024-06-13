@@ -1,0 +1,48 @@
+<div class="flex mt-3 w-64">
+  <app-boton-eliminar (eliminar)="onDelete($event)" />
+
+  <div class="bg-gray-300 relative p-4 rounded-box w-full h-30 flex flex-col justify-center">
+    <svg
+      class="w-6 h-6 text-gray-800 absolute hover:text-gray-700 top-1.5 right-4 transform translate-x-2 translate-y-2"
+      (click)="OpenModal()" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" width="24" height="24" fill="none"
+      viewBox="0 0 24 24">
+      <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+        d="M5 7h14m-9 3v8m4-8v8M10 3h4a1 1 0 0 1 1 1v3H9V4a1 1 0 0 1 1-1ZM6 7h12v13a1 1 0 0 1-1 1H7a1 1 0 0 1-1-1V7Z" />
+    </svg>
+    <a href="/task/{{Id}}" class="text-base text-black mb-1 cursor-pointer hover:underline">{{ Nombre }}</a>
+    <div class="flex items-center space-x-1.5 justify-start">
+      <p class="text-sm text-gray-500 flex items-center mb-1">Participantes:</p>
+      @for (user of Users; track user.Id; let idx = $index) {
+      <div class="{{
+            (idx + 1) % 4 == 0
+              ? 'bg-blue-900 text-white w-6 h-6 rounded-full flex items-center justify-center text-xs mb-1'
+              : (idx + 1) % 3 == 0
+                ? 'bg-green-900 text-white w-6 h-6 rounded-full flex items-center justify-center text-xs mb-1 '
+                : (idx + 1) % 2 == 0
+                  ? 'bg-red-800 text-white w-6 h-6 rounded-full flex items-center justify-center text-xs mb-1'
+                  : 'bg-yellow-600 text-white w-6 h-6 rounded-full flex items-center justify-center text-xs mb-1'
+          }}">
+
+        {{ user.Nombre.charAt(0) }}
+      </div>
+      }
+    </div>
+    <p class="text-sm text-gray-500 mb-1 mt-1"> Fechas:
+      <span class="ml-1 text-black">{{ FechaCreacion}} - {{ FechaLimite}}</span>
+    </p>
+    <div class="py-1 max-w-full flex overflow-x-scroll">
+      @for (tag of Tags; track tag; let idx = $index) {
+      <span class="{{
+            (idx + 1) % 4 == 0
+              ? 'bg-red-800 text-white text-xs me-2 px-2.5 py-0.5 rounded-full '
+              : (idx + 1) % 3 == 0
+                ? 'bg-yellow-600 text-white text-xs font-medium me-2 px-2.5 py-0.5 rounded-full '
+                : (idx + 1) % 2 == 0
+                  ? 'bg-green-800 text-white text-xs font-medium me-2 px-2.5 py-0.5 rounded-full '
+                  : 'bg-blue-900 text-white text-xs font-medium me-2 px-2.5 py-0.5 rounded-full '
+          }}">
+        {{ tag.Nombre }}</span>
+      }
+    </div>
+  </div>
+</div>

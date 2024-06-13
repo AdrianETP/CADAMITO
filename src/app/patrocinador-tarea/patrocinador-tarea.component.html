@@ -1,0 +1,17 @@
+<div
+    class="card w-96 bg-gray-700 shadow-xl w-[700px] mb-[20px] p-relative"
+>
+    <div class="card-body" style="padding: 15px">
+        <svg style="position: absolute; top: 5; right: 5;" class="w-6 h-6 text-gray-800 dark:text-white" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" width="24" height="24" [attr.fill]="tareaStatus ? 'green' : 'gray'" viewBox="0 0 24 24">
+            <path fill-rule="evenodd" d="M2 12C2 6.477 6.477 2 12 2s10 4.477 10 10-4.477 10-10 10S2 17.523 2 12Zm13.707-1.293a1 1 0 0 0-1.414-1.414L11 12.586l-1.793-1.793a1 1 0 0 0-1.414 1.414l2.5 2.5a1 1 0 0 0 1.414 0l4-4Z" clip-rule="evenodd"/>
+        </svg>
+        <h2 class="card-title">{{ tareaTitle }}</h2>
+        <p class= "text-sm" style="text-align: left">
+            {{ tareaDesc }}
+        </p>
+        <p class="text-xs dark:text-white" style="text-align: left">
+            Terminada el {{ tareaFecha }}
+        </p>
+        <div class="card-actions justify-end"></div>
+    </div>
+</div>

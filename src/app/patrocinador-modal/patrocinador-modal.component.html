@@ -1,0 +1,107 @@
+<dialog id="my_modal_8" class="modal">
+  <div class="modal-box max-w-5xl h-3/4 w-full overflow-hidden p-0 bg-gray-800">
+    <div class="modal-action">
+      <a href="#" class="btn btn-sm btn-circle btn-ghost absolute right-2 top-2"
+        >✕</a
+      >
+    </div>
+    <div class="flip-card" [ngClass]="{ flipped: isFlipped }">
+      <div class="flip-card-inner">
+        <div class="flip-card-front">
+          <div>
+            <h2
+              class="text-3xl font-bold dark:text-white mb-4"
+              style="margin-bottom: 20px"
+            >
+              {{ Sistema }}
+            </h2>
+            <p class="mb-3 dark:text-white mt-4 text-base">
+              {{ SistemaDesc }}
+            </p>
+          </div>
+          <div>
+            <h2
+              class="text-3xl font-bold dark:text-white"
+              style="margin-bottom: 20px; margin-top: 20px"
+            >
+              Partes
+            </h2>
+            <ul class="space-y-4 text-left text-white dark:text-white0">
+              @for (parte of Partes; track parte) {
+                <li class="flex items-center space-x-3 rtl:space-x-reverse">
+                  <svg
+                    class="w-6 h-6 text-white dark:text-white"
+                    aria-hidden="true"
+                    xmlns="http://www.w3.org/2000/svg"
+                    width="24"
+                    height="24"
+                    fill="none"
+                    viewBox="0 0 24 24"
+                  >
+                    <path
+                      stroke="currentColor"
+                      stroke-linecap="round"
+                      stroke-linejoin="round"
+                      stroke-width="2"
+                      d="M8.5 11.5 11 14l4-4m6 2a9 9 0 1 1-18 0 9 9 0 0 1 18 0Z"
+                    />
+                  </svg>
+                  <span> {{ parte }} </span>
+                </li>
+              }
+            </ul>
+          </div>
+          <div style="margin-top: 20px; margin-bottom: 50px">
+            <button
+              class="btn relative bottom-0 right-0 p-2 bg-custom-red text-white"
+              (click)="flipCard()"
+            >
+              Ver progreso
+            </button>
+          </div>
+        </div>
+        <div class="flip-card-back">
+          <div>
+            <div *ngIf="tareasExisten()">
+              <h2 class="text-3xl font-bold dark:text-white mb-[20px]">
+                Tareas Principales
+              </h2>
+              <div class="overflow-y-scroll h-[90%] max-h-56 px-3">
+                @for (tarea of Tareas; track tarea.tareaId) {
+                  <app-patrocinador-tarea [tareaTitle]="tarea.tareaNombre" [tareaDesc]="tarea.tareaDesc" [tareaFecha]="tarea.tareaFecha" [tareaStatus]="tarea.tareaStatus"></app-patrocinador-tarea>
+                }
+              </div>
+              <div class="py-4">
+                <h2 class="text-3xl font-bold dark:text-white mb-8 mt-4">Progreso</h2>
+                <div
+                  class="w-full bg-gray-200 rounded-full h-2.5 mb-4 dark:bg-gray-700"
+                  style="width: 100%"
+                >
+                  <div
+                    class="bg-custom-red h-2.5 rounded-full dark:bg-red-500"
+                    [style.width.%]="tareasCompletadas()"
+                    ></div>
+                </div>
+                <p class="text-center text-sm text-white"> {{ tareasCompletadas() | number: '1.0-2' }}%
+              </div>
+            </div>
+            <div *ngIf="!tareasExisten()">
+              <h2 class="text-3xl font-bold dark:text-white p-40">
+                No hay tareas asignadas
+              </h2>
+            </div>
+          </div>
+                
+          <div class="mt-5">
+            <button
+              class="btn relative bottom-0 right-0 p-2 bg-custom-red text-white"
+              (click)="flipCard()"
+            >
+              Regresar
+            </button>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</dialog>

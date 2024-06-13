@@ -1,0 +1,63 @@
+.container {
+    position: relative;
+  }
+
+  .modal-anchor {
+    position: absolute;
+    width: 1rem; 
+    height: 1rem; 
+    background-color: white;
+    border-radius: 50%;
+  }
+
+  .modal-anchor:hover {
+    background-color: gray;
+  }
+
+  .modal-label {
+    position: absolute;
+  }
+
+  .suspension {
+    top: 50%; 
+    left: 84%; 
+    transform: translateX(-50%);
+  }
+  .suspension-label {
+    top: 49%;
+    left: 92%;
+    transform: translateX(-50%);
+  }
+
+  .chasis {
+    top: 50%; 
+    left: 15%; 
+    transform: translateX(-50%);
+  }
+  .chasis-label {
+    top: 49%;
+    left: 9%;
+    transform: translateX(-50%);
+  }
+
+  .electronica {
+    top: 81%; 
+    left: 50%; 
+    transform: translateX(-50%);
+  }
+  .electronica-label {
+    top: 83%;
+    left: 50%;
+    transform: translateX(-50%);
+  }
+
+  .powertrain {
+    top: 29%; 
+    left: 50%; 
+    transform: translateX(-50%);
+  }
+  .powertrain-label {
+    top: 24%;
+    left: 50%;
+    transform: translateX(-50%);
+  }

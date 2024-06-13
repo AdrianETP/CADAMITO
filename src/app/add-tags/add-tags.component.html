@@ -1,0 +1,19 @@
+<dialog id="my_modal_tags" class="modal" [attr.data-modal-id]="ModalId">
+    <div class="modal-box bg-gray-200">
+      <form method="dialog">
+        <button
+          type="button"
+          class="btn-sm btn-circle btn-ghost absolute right-2 top-2 text-black font-bold focus:border-transparent flex items-center justify-center"
+          (click)="closeModal()"
+        >
+          ✕
+        </button>
+      </form>
+      <app-tag-select (TagsEmmitter)="onNewTag($event)"></app-tag-select>
+  
+      <div class="flex justify-end">
+        <button type="button" class="btn hover:bg-green-600 hover:border-transparent mt-4 bg-green-600 text-white border-green-600 w-full" (click)="Addtag()">Confirmar</button>
+      </div>
+    </div>
+</dialog>
+  

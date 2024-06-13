@@ -1,0 +1,75 @@
+<div class="flex min-h-full">
+    <app-sidebar-taskmanager class="min-h-full"></app-sidebar-taskmanager>
+        <body class="p-10 w-full h-full mx-auto bg-white">
+    <div class="text-sm breadcrumbs text-gray-700 pl-4">
+        <ul>
+            <li><a>Departamentos</a></li>
+        </ul>
+    </div>
+    <h1 class="text-2xl text-black font-medium mb-6 pl-4">Departamentos</h1>
+    <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-4 mx-auto">
+
+        <!-- Power Train -->
+        <figure class="relative max-w-sm w-full flex flex-col items-center">
+            <a [routerLink]="['/taskManager', 2]">
+                <img class="rounded-lg transition-all duration-300 cursor-pointer filter brightness-50 hover:brightness-75"
+                    src="/../../assets/images/PowerTrain.png" alt="image description">
+            </a>
+            <h1 class= "absolute w-full text-center text-2xl text-white font-bold bottom-8">
+                Power Train</h1>
+        </figure>
+
+        <!-- Suspension -->
+        <figure class="relative max-w-sm w-full flex flex-col items-center">
+            <a [routerLink]="['/taskManager', 4]">
+                <img class="rounded-lg transition-all duration-300 cursor-pointer filter brightness-50 hover:brightness-75"
+                    src="/../../assets/images/Suspension.png" alt="image description">
+            </a>
+            <h1 class="absolute text-2xl text-white font-bold left-1/2 -translate-x-1/2 bottom-8">
+                Suspensión</h1>
+        </figure>
+
+        <!-- Chasis -->
+        <figure class="relative max-w-sm w-full flex flex-col items-center">
+            <a [routerLink]="['/taskManager', 1]">
+                <img class="rounded-lg transition-all duration-300 cursor-pointer filter brightness-50 hover:brightness-75"
+                    src="/../../assets/images/Chasis.png" alt="image description">
+            </a>
+            <h1 class="absolute text-2xl text-white font-bold left-1/2 -translate-x-1/2 bottom-8">
+                Chasis</h1>
+        </figure>
+
+        <!-- Finanzas -->
+        <figure class="relative max-w-sm w-full flex flex-col items-center">
+            <a [routerLink]="['/taskManager', 6]">
+                <img class="rounded-lg transition-all duration-300 cursor-pointer filter brightness-50 hover:brightness-75"
+                    src="/../../assets/images/Finanzas.png" alt="image description">
+            </a>
+            <h1 class="absolute text-2xl text-white font-bold left-1/2 -translate-x-1/2 bottom-8">
+                Finanzas</h1>
+        </figure>
+
+        <!-- Electronica -->
+        <figure class="relative max-w-sm w-full flex flex-col items-center">
+            <a [routerLink]="['/taskManager', 3]">
+                <img class="rounded-lg transition-all duration-300 cursor-pointer filter brightness-50 hover:brightness-75"
+                    src="/../../assets/images/Electronica.png" alt="image description">
+            </a>
+            <h1 class="absolute text-2xl text-white font-bold left-1/2 -translate-x-1/2 bottom-8">
+                Electrónica</h1>
+        </figure>
+
+        <!-- Marketing -->
+        <figure class="relative max-w-sm w-full flex flex-col items-center">
+            <a [routerLink]="['/taskManager', 5]">
+                <img class="rounded-lg transition-all duration-300 cursor-pointer filter brightness-50 hover:brightness-75"
+                    src="/../../assets/images/Marketing.png" alt="image description">
+            </a>
+            <h1 class="absolute text-2xl text-white font-bold left-1/2 -translate-x-1/2 bottom-8">
+                Marketing</h1>
+        </figure>
+
+
+    </div>
+</body>
+</div>

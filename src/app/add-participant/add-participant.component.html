@@ -1,0 +1,39 @@
+<dialog id="my_modal_participants" class="modal" [attr.data-modal-id]="ModalId">
+  <div class="modal-box bg-gray-200">
+      <form method="dialog">
+          <button
+              type="button"
+              class="btn-sm btn-circle btn-ghost absolute right-2 top-2 text-black font-bold focus:border-transparent flex items-center justify-center"
+              (click)="closeModal()"
+          >
+              ✕
+          </button>
+      </form>
+      <p class="text-black font-bold py-4">Participantes</p>
+      <div class="dropdown w-full" [ngClass]="{'dropdown-open': filteredUsers.length > 0}">
+          <input 
+              tabindex="0" 
+              [(ngModel)]="inputName" 
+              (input)="filterUsers()" 
+              placeholder="Escribe nombre de usuario" 
+              class="input input-bordered m-1 w-full"
+          >
+          <ul tabindex="0" *ngIf="filteredUsers.length > 0" class="dropdown-content z-[1] menu p-2 shadow bg-base-100 rounded-box w-52">
+              <li *ngFor="let user of filteredUsers" (click)="selectUser(user)">
+                  <a>{{ user.Nombre }}</a>
+              </li>
+          </ul>
+          <div *ngIf="errorMsg" class="text-red-500 m-1">Usuario debe existir</div>
+      </div>
+      
+      <div class="justify-end pt-20">
+          <button 
+              type="button" 
+              class="btn hover:bg-green-600 hover:border-transparent mt-4 bg-green-600 text-white border-green-600 w-full" 
+              (click)="confirmSelection()"
+          >
+              Confirmar
+          </button>
+      </div>
+  </div>
+</dialog>

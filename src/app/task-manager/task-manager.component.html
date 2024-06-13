@@ -1,0 +1,16 @@
+<div class="flex min-h-full bg-white">
+  <app-sidebar-taskmanager class="min-h-full"></app-sidebar-taskmanager>
+  <section class="p-10 w-[87.8vw] h-full mx-auto bg-white">
+    <app-breadcrumbs></app-breadcrumbs>
+    <app-info [info]="info"></app-info>
+    <app-task-filters [tableroId]="tableroId" (newSection)="onNewSection($event)"></app-task-filters>
+    <app-task-modal [ModalId]="modalId" [usersTablero]="usersTablero" (Newtask)="onNewTask($event)"></app-task-modal>
+    <div id="tablero" class="flex overflow-x-scroll w-full space-x-5">
+      @for (section of sections; track section.Id) {
+      <app-task-seccion [Nombre]="section.Nombre" [Tareas]="
+            section.Tareas != undefined || section.Tareas ? section.Tareas : []
+          " [Id]="section.Id" (modalIdChange)="onModalIdChange($event)"></app-task-seccion>
+      } @empty {}
+    </div>
+  </section>
+</div>
